@@ -66,7 +66,7 @@ class Floor {
             if (p.empty) {
                 num = num + 1
             }
-        });
+        }); 
         return num
     }
 }
