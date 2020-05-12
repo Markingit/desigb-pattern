@@ -1,30 +1,36 @@
-// 适配器模式
-
-
-class Adaptee {
-    specificRequest() {
-        return '需要转换的标准接口'
-    }
-}
-
-class Target {
+// 观察者模式   前端使用最多  发布&订阅  一对多
+// 主题 保存状态，状态变化之后触发所有观察者对象
+class Subject {
     constructor() {
-        this.adaptee = new Adaptee()
+        this.state = 0
+        this.observers = []
     }
-    request() {
-        let info = this.adaptee.specificRequest()
-        return `${info} - 转换器 - 可适配标准接口`
+    getState() {
+        return this.state
+    }
+    setState(state) {
+        this.state = state
+        this.notifyAllObservers()
+    }
+    notifyAllObservers() {
+        this.observers.forEach(observe => {
+            observe.update()
+        })
+    }
+    attach(observe) {
+        this.observes.push(observe)
     }
 }
 
-// test 
+//观察者
 
-let target = new Target()
-let res = target.request()
-
-
-console.log(res)
-
-//使用场景
-
-// 接口封装， vue的computed方法
+class Observe { 
+    constructor(name, subject) {
+        this.name = name
+        this.subject = subject
+        this.subject.attach(this)
+    }
+    update() {
+        console.log(`${this.name} update, state:${this.subject.getState()}`)
+    }
+}
