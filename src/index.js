@@ -1,36 +1,31 @@
-// 观察者模式   前端使用最多  发布&订阅  一对多
-// 主题 保存状态，状态变化之后触发所有观察者对象
-class Subject {
-    constructor() {
-        this.state = 0
-        this.observers = []
-    }
-    getState() {
-        return this.state
-    }
-    setState(state) {
-        this.state = state
-        this.notifyAllObservers()
-    }
-    notifyAllObservers() {
-        this.observers.forEach(observe => {
-            observe.update()
-        })
-    }
-    attach(observe) {
-        this.observes.push(observe)
+// 迭代器模式 有序的访问数据集合  迭代器对象和目标对象分离
+
+// 场景 jQuery each   ES6 Iterator（统一的遍历接口遍历所有数据类型） 有.next()方法
+
+
+
+function each(data) {
+    // let iterator = data[Symbol.iterator]()
+    // let item = {done: false}
+    // while (!item.done) {
+    //     item = iterator.next()
+    //     if (!item.done) {
+    //         console.log(item.value)
+    //     }
+    // }
+    // for...of...
+    for (let item of data) {
+        console.log(item)
     }
 }
 
-//观察者
 
-class Observe { 
-    constructor(name, subject) {
-        this.name = name
-        this.subject = subject
-        this.subject.attach(this)
-    }
-    update() {
-        console.log(`${this.name} update, state:${this.subject.getState()}`)
-    }
-}
+let arr = [1, 2, 3, 4]
+let m = new Map()
+m.set('a', 100)
+m.set('b', 200)
+
+
+each(arr)
+
+each(m)
