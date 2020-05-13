@@ -5,6 +5,7 @@
 
 
 function each(data) {
+    // es6自己生成迭代器
     // let iterator = data[Symbol.iterator]()
     // let item = {done: false}
     // while (!item.done) {
