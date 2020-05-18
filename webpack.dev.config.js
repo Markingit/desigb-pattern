@@ -23,6 +23,11 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname, './release'), // 跟目录
         open: true, //自动打开浏览器
-        port: 7235
+        port: 7235,
+        proxy: {
+            '/api/*': {
+                target: 'http://localhost:8880'
+            }
+        }
     }
 }
