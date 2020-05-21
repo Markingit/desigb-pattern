@@ -2,21 +2,25 @@
     {
         "id": 1,
         "name": "测试数据1",
-        "price": 119
+        "price": 119,
+        "discount": 1
     },
     {
         "id": 2,
         "name": "测试数据2",
-        "price": 128
+        "price": 128,
+        "discount": 1
     },
     {
         "id": 3,
         "name": "测试数据3",
-        "price": 249
+        "price": 249,
+        "discount": 0
     },
     {
         "id": 4,
         "name": "测试数据4",
-        "price": 448
+        "price": 448,
+        "discount": 0
     }
 ]
